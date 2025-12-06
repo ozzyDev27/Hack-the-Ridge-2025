@@ -26,7 +26,7 @@
 
 Once installed, Sixth Sense runs automatically in the background:
 
-* Caregivers receive **push notifications 📲** for falls or distress sounds.
+* Caregivers receive **push notifications 📲** for falls.
 * Users can interact with the system for **contextual help 🧭**, like finding misplaced objects.
 * The system prioritizes **simple, intuitive interfaces 🖱️** for both caregivers and older adults.
 
@@ -39,6 +39,6 @@ Sixth Sense was inspired by my grandfather, who struggles with modern technology
 Accessibility is at the heart of Sixth Sense:
 
 * The system **works quietly in the background**, respecting the user’s space and routines.
-* By combining **fall detection, sound alerts, and contextual guidance**, Sixth Sense ensures safety while maintaining independence.
+* By combining **fall detection, and contextual guidance**, Sixth Sense ensures safety while maintaining independence.
 
 The goal is to **create technology that adapts to the user, and makes their lifestyle easier** and give older adults confidence and autonomy in their daily lives.
