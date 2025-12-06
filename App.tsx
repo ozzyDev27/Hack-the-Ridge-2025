@@ -2,14 +2,14 @@ import { VideoFeed } from './components/VideoFeed';
 
 export default function App() {
   return (
-    <div className="bg-amber-50 w-[428px] mx-auto">
+    <div className="w-[428px] mx-auto" style={{backgroundColor: '#fff1ae'}}>
       {/* Header */}
-      <header className="bg-orange-50 border-b border-orange-200">
+      <header className="bg-white" style={{borderBottom: '1px solid #ae8ca3'}}>
         <div className="px-6 py-5 flex items-center justify-between">
-          <h1 className="text-2xl font-bold text-orange-900">Sixth Sense</h1>
+          <h1 className="text-2xl font-bold" style={{color: '#474b5d'}}>Sixth Sense</h1>
           <div className="flex items-center gap-2">
-            <div className="w-2.5 h-2.5 bg-blue-500 rounded-full animate-pulse"></div>
-            <span className="text-sm font-semibold text-blue-600">Live</span>
+            <div className="w-2.5 h-2.5 rounded-full animate-pulse" style={{backgroundColor: '#ae8ca3'}}></div>
+            <span className="text-sm font-semibold" style={{color: '#ae8ca3'}}>Live</span>
           </div>
         </div>
       </header>
