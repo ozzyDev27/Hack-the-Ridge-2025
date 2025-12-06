@@ -4,19 +4,19 @@
 
 @layer base {
   html, body {
-    @apply m-0 p-0 w-full overflow-x-hidden;
+    @apply m-0 p-0 w-full overflow-hidden;
     background: #fff1ae;
     height: 100vh;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   }
   
   #root {
-    @apply w-full;
+    @apply w-full overflow-hidden;
     transform-origin: top left;
     height: 100vh;
   }
   
-  @media (min-width: 428px) {
+  @media (min-width: 390px) {
     #root {
       transform: scale(1);
       transform-origin: top center;

@@ -1,9 +1,13 @@
 import { Camera } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
+const API_BASE = 'http://10.42.0.196:8000';
+
 export function VideoFeed() {
   const [currentTime, setCurrentTime] = useState(new Date());
   const [textInput, setTextInput] = useState('');
+  const [describeResponse, setDescribeResponse] = useState('');
+  const [searchResponse, setSearchResponse] = useState('');
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -12,6 +16,26 @@ export function VideoFeed() {
 
     return () => clearInterval(timer);
   }, []);
+
+  const handleSearch = async () => {
+    try {
+      const response = await fetch(`${API_BASE}/search?object=${encodeURIComponent(textInput)}`);
+      const data = await response.text();
+      setSearchResponse(data);
+    } catch (error) {
+      setSearchResponse('Error fetching search results: ' + error);
+    }
+  };
+
+  const handleDescribe = async () => {
+    try {
+      const response = await fetch(`${API_BASE}/describe`);
+      const data = await response.text();
+      setDescribeResponse(data);
+    } catch (error) {
+      setDescribeResponse('Error fetching description: ' + error);
+    }
+  };
 
   return (
     <div className="">
@@ -58,7 +82,7 @@ export function VideoFeed() {
             style={{color: '#474b5d', borderColor: '#ae8ca3', '--tw-ring-color': '#ae8ca3'} as any}
           />
           <button
-            onClick={() => console.log('Sent:', textInput)}
+            onClick={handleSearch}
             className="text-white font-semibold px-6 py-3 rounded-full text-base transition-colors shadow-md hover:opacity-90"
             style={{backgroundColor: '#474b5d'}}
           >
@@ -66,12 +90,26 @@ export function VideoFeed() {
           </button>
         </div>
         <button
-          onClick={() => console.log('Describe')}
+          onClick={handleDescribe}
           className="w-full mt-3 text-white font-semibold py-3 rounded-full text-base transition-colors shadow-md hover:opacity-90"
           style={{backgroundColor: '#ae8ca3'}}
         >
           Describe
         </button>
+        
+        {searchResponse && (
+          <div className="mt-4 bg-white rounded-2xl p-4 shadow-sm">
+            <div className="text-sm font-medium mb-2" style={{color: '#474b5d'}}>Search Results:</div>
+            <div className="text-base" style={{color: '#474b5d'}}>{searchResponse}</div>
+          </div>
+        )}
+        
+        {describeResponse && (
+          <div className="mt-4 bg-white rounded-2xl p-4 shadow-sm">
+            <div className="text-sm font-medium mb-2" style={{color: '#474b5d'}}>Description:</div>
+            <div className="text-base" style={{color: '#474b5d'}}>{describeResponse}</div>
+          </div>
+        )}
       </div>
     </div>
   );

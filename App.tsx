@@ -2,7 +2,7 @@ import { VideoFeed } from './components/VideoFeed';
 
 export default function App() {
   return (
-    <div className="w-[428px] mx-auto" style={{backgroundColor: '#fff1ae'}}>
+    <div className="w-[390px] mx-auto" style={{backgroundColor: '#fff1ae'}}>
       {/* Header */}
       <header className="bg-white" style={{borderBottom: '1px solid #ae8ca3'}}>
         <div className="px-6 py-5 flex items-center justify-between">
