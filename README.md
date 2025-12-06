@@ -1,6 +1,6 @@
 # Sixth Sense
 
-**Sixth Sense** is an accessibility-focused monitoring system designed to help loved ones—especially older adults—live safely and independently. By combining video monitoring, sound detection, and helpful contextual guidance, Sixth Sense keeps caregivers informed while giving users support when they need it most.
+**Sixth Sense** is an accessibility-focused monitoring system designed to help loved ones - especially older adults - live safely and independently. By combining video monitoring, sound detection, and helpful contextual guidance, Sixth Sense keeps caregivers informed while giving users support when they need it most.
 
 ---
 
