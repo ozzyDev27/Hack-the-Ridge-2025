@@ -31,8 +31,6 @@ Once installed, Sixth Sense runs automatically in the background:
 * Users can interact with the system for **contextual help 🧭**, like finding misplaced objects.
 * The system prioritizes **simple, intuitive interfaces 🖱️** for both caregivers and older adults.
 
-* Absolutely! Here's a **"Story Behind It"** section that ties your personal motivation to accessibility and privacy, and keeps the tone empathetic and human-centered:
-
 ---
 
 ## Story Behind It ❤️
