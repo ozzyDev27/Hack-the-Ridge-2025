@@ -69,7 +69,7 @@ export function VideoFeed() {
       {/* Video Container */}
       <div className="relative aspect-[4/3]" style={{backgroundColor: '#f5e9a0'}}>
         <iframe
-          src="http://10.42.0.1:1984/stream.html?src=linux_usbcam"
+          src="http://10.42.0.1:1984/stream.html?src=linux_usbcam&mode=webrtc"
           className="w-full h-full"
           title="Video Feed"
           style={{border: 'none'}}
