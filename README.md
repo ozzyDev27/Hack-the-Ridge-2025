@@ -7,7 +7,6 @@
 ## Features ✨
 
 * **Fall Detection 🤕** – Continuously monitors the environment for potential falls and immediately alerts caregivers.
-* **Sound Alerting 🔊** – Detects distress sounds, like yelling or calls for help, and notifies the monitoring app.
 * **Contextual Assistance 📝** – Provides helpful guidance for everyday tasks, such as locating objects or navigating spaces, especially for users with poor vision.
 * **Live Video Feed 🎥** – Streams real-time video from the monitored room, processed via Raspberry Pi, directly to the caregiver’s mobile app.
 * **Accessibility-First Design ♿** – Designed to prioritize ease of use, clarity, and support for those with mobility or vision challenges.
