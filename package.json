@@ -8,10 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@capacitor/cli": "^7.4.4",
+    "@capacitor/core": "^7.4.4",
+    "@capacitor/ios": "^7.4.4",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-slot": "^1.1.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
+    "expo": "^54.0.27",
     "lucide-react": "^0.487.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
@@ -26,5 +30,18 @@
     "tailwindcss": "^3.4.17",
     "typescript": "^5.7.2",
     "vite": "^6.0.3"
-  }
+  },
+  "description": "**Sixth Sense** is an accessibility-focused monitoring system designed to help loved ones—especially older adults—live safely and independently. Using a smart combination of video monitoring, sound detection, and helpful contextual cues, Sixth Sense ensures caregivers stay informed and that those being cared for have assistance when they need it most.",
+  "main": "postcss.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ozzyDev27/Hack-the-Ridge-2025.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ozzyDev27/Hack-the-Ridge-2025/issues"
+  },
+  "homepage": "https://github.com/ozzyDev27/Hack-the-Ridge-2025#readme"
 }
