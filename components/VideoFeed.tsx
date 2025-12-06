@@ -8,6 +8,7 @@ export function VideoFeed() {
   const [textInput, setTextInput] = useState('');
   const [describeResponse, setDescribeResponse] = useState('');
   const [searchResponse, setSearchResponse] = useState('');
+  const [fallDetected, setFallDetected] = useState(false);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -17,38 +18,66 @@ export function VideoFeed() {
     return () => clearInterval(timer);
   }, []);
 
+  useEffect(() => {
+    const checkFall = async () => {
+      try {
+        const response = await fetch(`${API_BASE}/fall`);
+        const data = await response.json();
+        setFallDetected(data.fall_detected || data.detected || false);
+      } catch (error) {
+        console.error('Error checking fall status:', error);
+      }
+    };
+
+    const fallTimer = setInterval(checkFall, 500);
+    checkFall(); // Initial call
+
+    return () => clearInterval(fallTimer);
+  }, []);
+
+  const speakText = (text: string) => {
+    const utterance = new SpeechSynthesisUtterance(text);
+    window.speechSynthesis.speak(utterance);
+  };
+
   const handleSearch = async () => {
     try {
       const response = await fetch(`${API_BASE}/search?object=${encodeURIComponent(textInput)}`);
-      const data = await response.text();
-      setSearchResponse(data);
+      const data = await response.json();
+      const textToSpeak = data.caption || data.result || JSON.stringify(data);
+      speakText(textToSpeak);
     } catch (error) {
-      setSearchResponse('Error fetching search results: ' + error);
+      const errorMsg = 'Error fetching search results: ' + error;
+      speakText(errorMsg);
     }
   };
 
   const handleDescribe = async () => {
     try {
       const response = await fetch(`${API_BASE}/describe`);
-      const data = await response.text();
-      setDescribeResponse(data);
+      const data = await response.json();
+      const textToSpeak = data.caption || data.result || JSON.stringify(data);
+      speakText(textToSpeak);
     } catch (error) {
-      setDescribeResponse('Error fetching description: ' + error);
+      const errorMsg = 'Error fetching description: ' + error;
+      speakText(errorMsg);
     }
   };
 
   return (
     <div className="">
       {/* Video Container */}
-      <div className="relative aspect-[4/3] flex items-center justify-center" style={{backgroundColor: '#f5e9a0'}}>
-        {/* Simulated room scene */}
-        <div className="relative w-full h-full flex items-center justify-center">
-          <div className="text-center">
-            <div className="w-28 h-28 mx-auto bg-white rounded-full flex items-center justify-center shadow-md">
-              <Camera className="w-14 h-14" style={{color: '#ae8ca3'}} />
-            </div>
-          </div>
-        </div>
+      <div className="relative aspect-[4/3]" style={{backgroundColor: '#f5e9a0'}}>
+        <iframe
+          src="http://10.42.0.1:1984/stream.html?src=linux_usbcam"
+          className="w-full h-full"
+          title="Video Feed"
+          style={{border: 'none'}}
+        />
+        
+        {/* Gradient overlays */}
+        <div className="absolute top-0 left-0 right-0 h-12 pointer-events-none" style={{background: 'linear-gradient(to bottom, white, transparent)'}} />
+        <div className="absolute bottom-0 left-0 right-0 h-12 pointer-events-none" style={{background: 'linear-gradient(to top, #fff1ae, transparent)'}} />
 
         {/* Timestamp overlay */}
         <div className="absolute top-3 left-3 bg-white/95 px-3 py-1 rounded-full text-xs font-semibold shadow-sm" style={{color: '#474b5d'}}>
@@ -60,12 +89,12 @@ export function VideoFeed() {
       <div className="px-6 py-5">
         <div className="grid grid-cols-2 gap-3">
           <div className="bg-white rounded-2xl p-4 text-center shadow-sm">
-            <div className="text-sm mb-1 font-medium" style={{color: '#474b5d'}}>Motion</div>
-            <div className="text-lg font-bold" style={{color: '#ae8ca3'}}>Active</div>
+            <div className="text-sm mb-1 font-medium" style={{color: '#474b5d'}}>Fall Detected?</div>
+            <div className="text-lg font-bold" style={{color: '#ae8ca3'}}>{fallDetected ? 'Yes' : 'No'}</div>
           </div>
           <div className="bg-white rounded-2xl p-4 text-center shadow-sm">
             <div className="text-sm mb-1 font-medium" style={{color: '#474b5d'}}>Status</div>
-            <div className="text-lg font-bold" style={{color: '#ae8ca3'}}>Safe</div>
+            <div className="text-lg font-bold" style={{color: '#ae8ca3'}}>Online</div>
           </div>
         </div>
       </div>
@@ -96,20 +125,6 @@ export function VideoFeed() {
         >
           Describe
         </button>
-        
-        {searchResponse && (
-          <div className="mt-4 bg-white rounded-2xl p-4 shadow-sm">
-            <div className="text-sm font-medium mb-2" style={{color: '#474b5d'}}>Search Results:</div>
-            <div className="text-base" style={{color: '#474b5d'}}>{searchResponse}</div>
-          </div>
-        )}
-        
-        {describeResponse && (
-          <div className="mt-4 bg-white rounded-2xl p-4 shadow-sm">
-            <div className="text-sm font-medium mb-2" style={{color: '#474b5d'}}>Description:</div>
-            <div className="text-base" style={{color: '#474b5d'}}>{describeResponse}</div>
-          </div>
-        )}
       </div>
     </div>
   );

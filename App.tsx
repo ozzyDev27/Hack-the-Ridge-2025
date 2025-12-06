@@ -9,7 +9,6 @@ export default function App() {
           <h1 className="text-2xl font-bold" style={{color: '#474b5d'}}>Sixth Sense</h1>
           <div className="flex items-center gap-2">
             <div className="w-2.5 h-2.5 rounded-full animate-pulse" style={{backgroundColor: '#ae8ca3'}}></div>
-            <span className="text-sm font-semibold" style={{color: '#ae8ca3'}}>Live</span>
           </div>
         </div>
       </header>
