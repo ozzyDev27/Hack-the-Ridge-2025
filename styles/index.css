@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body {
+    @apply m-0 p-0 w-full overflow-x-hidden;
+    background: #111827;
+  }
+  
+  #root {
+    @apply w-full;
+    transform-origin: top left;
+  }
+  
+  @media (min-width: 428px) {
+    #root {
+      transform: scale(3.3333);
+      transform-origin: top center;
+    }
+  }
+}

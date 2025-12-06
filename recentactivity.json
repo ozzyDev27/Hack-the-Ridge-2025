@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "type": "normal",
+    "message": "Motion detected in living room",
+    "time": "2 min ago"
+  },
+  {
+    "id": "2",
+    "type": "info",
+    "message": "Daily routine check completed",
+    "time": "1 hour ago"
+  },
+  {
+    "id": "3",
+    "type": "warning",
+    "message": "No motion detected for 3 hours",
+    "time": "3 hours ago"
+  },
+  {
+    "id": "4",
+    "type": "normal",
+    "message": "Kitchen activity detected",
+    "time": "5 hours ago"
+  },
+  {
+    "id": "5",
+    "type": "info",
+    "message": "Medication reminder acknowledged",
+    "time": "6 hours ago"
+  },
+  {
+    "id": "6",
+    "type": "normal",
+    "message": "Bathroom visit detected",
+    "time": "8 hours ago"
+  },
+  {
+    "id": "7",
+    "type": "warning",
+    "message": "Unusual sleep pattern detected",
+    "time": "12 hours ago"
+  },
+  {
+    "id": "8",
+    "type": "info",
+    "message": "Weekly health report generated",
+    "time": "1 day ago"
+  }
+]
