@@ -1,9 +1,9 @@
-import { Camera, Maximize2, Volume2, VolumeX } from 'lucide-react';
+import { Camera } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 export function VideoFeed() {
-  const [isMuted, setIsMuted] = useState(true);
   const [currentTime, setCurrentTime] = useState(new Date());
+  const [textInput, setTextInput] = useState('');
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -34,11 +34,9 @@ export function VideoFeed() {
           {currentTime.toLocaleString()}
         </div>
 
-
         {/* Status indicator */}
         <div className="absolute top-6 right-6">
         </div>
-        
       </div>
 
       {/* Environmental Stats */}
@@ -46,14 +44,30 @@ export function VideoFeed() {
         <div className="grid grid-cols-2 gap-4">
           <div className="bg-gray-900 rounded-xl p-5 text-center">
             <div className="text-gray-400 text-base mb-2">Motion</div>
-            <div className="text-green-500 text-xl font-semibold">Active</div> 
-            {/* aaaaaaaaaaaaaaaaaaaaaaaaaaaa hereherehereherehererheehrehrhehrere */}
+            <div className="text-green-500 text-xl font-semibold">Active</div>
           </div>
           <div className="bg-gray-900 rounded-xl p-5 text-center">
             <div className="text-gray-400 text-base mb-2">Status</div>
             <div className="text-white text-xl font-semibold">Safe</div>
           </div>
         </div>
+      </div>
+
+      {/* Text Input */}
+      <div className="bg-gray-800 px-6 pb-6">
+        <textarea
+          value={textInput}
+          onChange={(e) => setTextInput(e.target.value)}
+          placeholder="Search for something..."
+          className="w-full bg-gray-900 text-white rounded-xl p-5 text-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
+          rows={4}
+        />
+        <button
+          onClick={() => console.log('Sent:', textInput)}
+          className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl text-xl transition-colors"
+        >
+          Search
+        </button>
       </div>
     </div>
   );

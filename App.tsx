@@ -1,13 +1,12 @@
 import { VideoFeed } from './components/VideoFeed';
-import { ActivityFeed } from './components/ActivityFeed';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-gray-900 w-[428px] mx-auto">
+    <div className="bg-gray-900 w-[428px] mx-auto flex flex-col overflow-hidden">
      
 
       {/* Header */}
-      <header className="bg-gray-900 text-white px-6 py-6 border-b border-gray-800">
+      <header className="bg-gray-900 text-white px-6 py-6 border-b border-gray-800 flex-shrink-0">
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-white">Sixth Sense</h1>
@@ -20,10 +19,7 @@ export default function App() {
       </header>
 
       {/* Content */}
-      <main>
-        <VideoFeed />
-        <ActivityFeed />
-      </main>
+      <VideoFeed />
     </div>
   );
 }

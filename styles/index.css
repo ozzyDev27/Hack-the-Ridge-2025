@@ -6,11 +6,13 @@
   html, body {
     @apply m-0 p-0 w-full overflow-x-hidden;
     background: #111827;
+    height: 100vh;
   }
   
   #root {
     @apply w-full;
     transform-origin: top left;
+    height: 100vh;
   }
   
   @media (min-width: 428px) {
