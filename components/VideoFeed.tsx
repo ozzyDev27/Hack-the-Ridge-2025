@@ -14,66 +14,64 @@ export function VideoFeed() {
   }, []);
 
   return (
-    <div className="bg-gray-900">
+    <div className="">
       {/* Video Container */}
-      <div className="relative bg-black aspect-video flex items-center justify-center">
+      <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 aspect-video flex items-center justify-center border-b border-slate-700/50">
         {/* Placeholder video feed */}
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-slate-800 via-slate-900 to-slate-950"></div>
         
         {/* Simulated room scene */}
         <div className="relative w-full h-full flex items-center justify-center">
-          <div className="text-center space-y-6">
-            <div className="w-40 h-40 mx-auto bg-gray-700 rounded-full flex items-center justify-center">
-              <Camera className="w-20 h-20 text-gray-500" />
+          <div className="text-center">
+            <div className="w-32 h-32 mx-auto bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl flex items-center justify-center border border-slate-600/30 backdrop-blur-sm">
+              <Camera className="w-16 h-16 text-slate-400" />
             </div>
           </div>
         </div>
 
         {/* Timestamp overlay */}
-        <div className="absolute top-2 left-2 bg-black bg-opacity-30 text-white px-4 py-1 rounded-lg text-base font-mono">
+        <div className="absolute top-3 left-3 bg-slate-950/60 backdrop-blur-md text-slate-200 px-3 py-1.5 rounded-lg text-sm font-medium border border-slate-700/50">
           {currentTime.toLocaleString()}
-        </div>
-
-        {/* Status indicator */}
-        <div className="absolute top-6 right-6">
         </div>
       </div>
 
       {/* Environmental Stats */}
-      <div className="bg-gray-800 px-6 py-6">
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-gray-900 rounded-xl p-5 text-center">
-            <div className="text-gray-400 text-base mb-2">Motion</div>
-            <div className="text-green-500 text-xl font-semibold">Active</div>
+      <div className="px-4 py-5">
+        <div className="grid grid-cols-2 gap-3">
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 text-center border border-slate-700/30">
+            <div className="text-slate-400 text-sm font-medium mb-1">Motion</div>
+            <div className="text-emerald-400 text-lg font-bold">Active</div>
           </div>
-          <div className="bg-gray-900 rounded-xl p-5 text-center">
-            <div className="text-gray-400 text-base mb-2">Status</div>
-            <div className="text-white text-xl font-semibold">Safe</div>
+          <div className="bg-slate-800/50 backdrop-blur-sm rounded-xl p-4 text-center border border-slate-700/30">
+            <div className="text-slate-400 text-sm font-medium mb-1">Status</div>
+            <div className="text-slate-200 text-lg font-bold">Safe</div>
           </div>
         </div>
       </div>
 
       {/* Text Input */}
-      <div className="bg-gray-800 px-6 pb-6">
+      <div className="px-4 pb-5">
         <textarea
           value={textInput}
           onChange={(e) => setTextInput(e.target.value)}
           placeholder="Search for something..."
-          className="w-full bg-gray-900 text-white rounded-xl p-5 text-lg resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-          rows={4}
+          className="w-full bg-slate-800/50 backdrop-blur-sm text-slate-200 rounded-lg p-4 text-base resize-none focus:outline-none focus:ring-2 focus:ring-blue-500/50 border border-slate-700/30 placeholder:text-slate-500"
+          rows={2}
         />
-        <button
-          onClick={() => console.log('Sent:', textInput)}
-          className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl text-xl transition-colors"
-        >
-          Search
-        </button>
-        <button
-          onClick={() => console.log('Describe')}
-          className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl text-xl transition-colors"
-        >
-          Describe
-        </button>
+        <div className="grid grid-cols-2 gap-3 mt-3">
+          <button
+            onClick={() => console.log('Sent:', textInput)}
+            className="bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 text-white font-semibold py-3 rounded-lg text-base transition-all shadow-lg shadow-blue-500/20"
+          >
+            Search
+          </button>
+          <button
+            onClick={() => console.log('Describe')}
+            className="bg-gradient-to-r from-emerald-600 to-emerald-500 hover:from-emerald-700 hover:to-emerald-600 text-white font-semibold py-3 rounded-lg text-base transition-all shadow-lg shadow-emerald-500/20"
+          >
+            Describe
+          </button>
+        </div>
       </div>
     </div>
   );
