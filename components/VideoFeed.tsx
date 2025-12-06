@@ -68,6 +68,12 @@ export function VideoFeed() {
         >
           Search
         </button>
+        <button
+          onClick={() => console.log('Describe')}
+          className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-xl text-xl transition-colors"
+        >
+          Describe
+        </button>
       </div>
     </div>
   );
